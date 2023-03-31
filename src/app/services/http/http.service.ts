@@ -8,6 +8,6 @@ export class HttpService {
   constructor() { }
 
   public getData(url: string, headers?: any, body: any): Observable<any> {
-
+    return this.http.get<any>(`TBD`);
   }
 }
