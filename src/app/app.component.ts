@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
+  template: `<app-main></app-main>`,
 })
 export class AppComponent {
-  title = 'Faux Store';
+  title: string = 'Faux Store';
 }
