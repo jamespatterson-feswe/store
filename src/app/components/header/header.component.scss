@@ -3,10 +3,11 @@
   flex-direction: row;
   align-items: center;
   background-color: var(--banner);
-  color: var(--bg);
-  text-shadow: var(--text) 1px 0 10px;
+  color: var(--text);
+  text-shadow: var(--bg) 1px 0 10px;
   height: 10vh;
   padding-left: 20px;
+  gap: 20px;
 }
 
 .spacer {
@@ -15,14 +16,15 @@
 
 .login-logout-signup-btn {
   background-color: transparent;
-  color: var(--bg);
-  text-shadow: var(--text) 1px 0 10px;
+  color: var(--text);
+  text-shadow: var(--bg) 1px 0 10px;
   font-weight: bold;
   border: none;
-  margin-right: 20px;
 }
 
 .cart {
-  // white filter: invert(100%) sepia(99%) saturate(2%) hue-rotate(74deg) brightness(111%) contrast(101%);
-  filter: invert(0%) sepia(79%) saturate(0%) hue-rotate(105deg) brightness(98%) contrast(104%);
+  height: 2.5vh;
+  margin-right: 20px;
+  filter: invert(100%) sepia(99%) saturate(2%) hue-rotate(74deg) brightness(111%) contrast(101%);
+  // filter: invert(0%) sepia(79%) saturate(0%) hue-rotate(105deg) brightness(98%) contrast(104%);
 }
