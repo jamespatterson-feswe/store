@@ -1,3 +1,14 @@
 <div class="header">
   <h1>{{ title }}</h1>
+  <span class="spacer"></span>
+  <button
+    class="login-logout-signup-btn"
+    *ngIf="!isLoggedIn">
+    Sign Up
+  </button>
+  <button
+    class="login-logout-signup-btn"
+    (click)="userLoginLogout()">
+    {{ status }}
+  </button>
 </div>

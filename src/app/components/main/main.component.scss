@@ -1,32 +1,12 @@
-// header
-.header {
-  display: flex;
-  flex-direction: row;
-  background-color: var(--banner);
-  color: var(--bg);
-  height: 10vh;
-}
-
-// content
 .container {
   background-color: var(--bg);
   color: var(--text);
   height: 80vh;
-  overflow-y: scroll;
+  overflow: auto;
 
   .content {
     display: flex;
     flex-direction: column;
     margin: 20px;
   }
-}
-
-// footer
-.footer {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--banner);
-  height: 10vh;
 }

@@ -8,3 +8,15 @@
   height: 10vh;
   padding-left: 20px;
 }
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.login-logout-signup-btn {
+  background-color: transparent;
+  color: var(--bg);
+  text-shadow: var(--text) 1px 0 10px;
+  border: none;
+  margin-right: 20px;
+}
