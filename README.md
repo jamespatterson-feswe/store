@@ -18,6 +18,10 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 The link, `https://stackblitz.com/github/jamespatterson-feswe/store`
 
+## SVG filter generator
+
+The link, `https://codepen.io/sosuke/pen/Pjoqqp`
+
 ## API to use
 
 `https://fakestoreapi.com/products`
