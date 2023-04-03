@@ -14,7 +14,7 @@
   }
 }
 
-.box {
+.card {
   display: flex;
   flex-flow: column;
   border: 0.5px solid;
@@ -24,24 +24,24 @@
 
   min-height: 300px;
   width: 25vw;
-}
 
-.box .header {
-  flex: 0 1 auto;
-  display: flex;
-  justify-content: center;
-}
-
-.box .content {
-  flex: 1 1 auto;
-  height: 80%;
-  .img {
-    max-height: 200px;
-    max-width: 200px;
+  .header {
+    flex: 0 1 auto;
+    display: flex;
+    justify-content: center;
   }
-}
 
-.box .footer {
-  display: flex;
-  flex-direction: row;
+  .content {
+    flex: 1 1 auto;
+    height: 80%;
+    .img {
+      max-height: 200px;
+      max-width: 200px;
+    }
+  }
+
+  .footer {
+    display: flex;
+    flex-direction: row;
+  }
 }
