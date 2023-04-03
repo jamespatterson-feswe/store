@@ -1,6 +1,6 @@
 <div class="container">
-  <div class="content" *ngIf="products$">
-    <div *ngFor="let product of (products$ | async)">
+  <!-- <div class="content" *ngIf="products$"> -->
+    <!-- <div *ngFor="let product of (products$ | async)">
       <div class="card">
         <div class="header">
           <p>{{ product.title }}</p>
@@ -14,6 +14,7 @@
           <p>{{ product.price }}</p>
         </div>
       </div>
-    </div>
-  </div>
+    </div> -->
+    <app-products [products]="products$" ></app-products>
+  <!-- </div> -->
 </div>
