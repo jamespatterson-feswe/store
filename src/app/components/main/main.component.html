@@ -1,24 +1,14 @@
 <div class="container">
-  <div class="content">
-    <div *ngIf="products$">
-      <div *ngFor="let product of (products$ | async)">
+  <div class="content" *ngIf="products$">
+    <div *ngFor="let product of (products$ | async)">
+      <div class="product-card">
         <p>{{ product.title }}</p>
+        <p>{{ product.category }}</p>
+        <img src="{{product.image}}" alt="product for sale" style="max-height: 200px; max-width: 200px;">
+        <p>{{ product.description }}</p>
+        <p>{{ product.rating.rate }}</p>
+        <p>{{ product.price }}</p>
       </div>
     </div>
   </div>
 </div>
-
-<!-- export interface Products {
-  category: string;
-  description: string;
-  id: number;
-  image: string;
-  price: number;
-  rating: Rating;
-  title: string;
-}
-
-interface Rating {
-  rate: number;
-  count: number;
-} -->

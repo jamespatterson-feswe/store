@@ -11,6 +11,6 @@ export class HttpService {
   constructor(private http: HttpClient) { }
 
   public getRequest(url: string, options?: any): Observable<Products[]> {
-    return this.http.get<any>(`https://fakestoreapi.com/products`);
+    return this.http.get<any>(url);
   }
 }
