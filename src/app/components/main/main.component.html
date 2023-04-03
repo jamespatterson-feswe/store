@@ -2,12 +2,14 @@
   <div class="content" *ngIf="products$">
     <div *ngFor="let product of (products$ | async)">
       <div class="product-card">
-        <p>{{ product.title }}</p>
         <p>{{ product.category }}</p>
+        <p>{{ product.title }}</p>
         <img src="{{product.image}}" alt="product for sale" style="max-height: 200px; max-width: 200px;">
-        <p>{{ product.description }}</p>
-        <p>{{ product.rating.rate }}</p>
-        <p>{{ product.price }}</p>
+        <!-- <p>{{ product.description }}</p> -->
+        <!-- <p>{{ product.rating.rate }}</p> -->
+        <div class="product-card-price">
+          <p class="price">{{ product.price }}</p>
+        </div>
       </div>
     </div>
   </div>
