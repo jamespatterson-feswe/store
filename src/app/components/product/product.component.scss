@@ -37,7 +37,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    
+
     .img {
       max-height: 200px;
       max-width: 200px;
@@ -47,5 +47,11 @@
   .footer {
     display: flex;
     flex-direction: row;
+
+    .cart {
+      height: 2.5vh;
+      margin-left: 20px;
+      filter: invert(0%) sepia(79%) saturate(0%) hue-rotate(105deg) brightness(98%) contrast(104%);
+    }
   }
 }
