@@ -25,6 +25,22 @@
   min-height: 300px;
   width: 25vw;
 
+  @media only screen and (max-width: 882px) {
+    width: 40vw;
+  }
+
+  @media only screen and (max-width: 800px) {
+    width: 35vw;
+  }
+
+  @media only screen and (max-width: 720px) {
+    width: 30vw;
+  }
+
+  @media only screen and (max-width: 620px) {
+    width: 80vw;
+  }
+
   .header {
     flex: 0 1 auto;
     display: flex;
