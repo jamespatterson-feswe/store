@@ -20,6 +20,7 @@ import { MainComponent } from './components/main/main.component';
     LoginSignUpModule,
     ProductModule,
   ],
+  exports: [],
   providers: [],
   bootstrap: [AppComponent],
 })
