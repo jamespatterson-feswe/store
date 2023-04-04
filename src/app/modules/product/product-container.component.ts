@@ -5,25 +5,27 @@ import { BehaviorSubject, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-product-container',
-  templateUrl: './product-container.component.html',
-  styleUrls: ['./product-container.component.scss']
+  template: ` <app-products [products]="products$"></app-products> `,
 })
 export class ProductContainerComponent implements OnInit, OnDestroy {
   private productsSubscription!: Subscription;
-  protected products$: BehaviorSubject<Product[]> = new BehaviorSubject<Product[]>([]);
+  protected products$: BehaviorSubject<Product[]> = new BehaviorSubject<
+    Product[]
+  >([]);
 
   constructor(private http: HttpService) {}
 
   ngOnInit(): void {
-    this.productsSubscription =
-      this.http.getRequest('https://fakestoreapi.com/products').subscribe({
+    this.productsSubscription = this.http
+      .getRequest('https://fakestoreapi.com/products')
+      .subscribe({
         next: (data: Product[]) => {
           console.log(data);
           this.products$.next(data);
         },
         error: (err: unknown) => {
           console.error(err);
-        }
+        },
       });
   }
 

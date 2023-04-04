@@ -13,6 +13,6 @@ import { ProductComponent } from './components/product/product.component';
     ProductComponent,
   ],
   imports: [CommonModule, ProductRoutingModule],
-  exports: [ProductContainerComponent, ProductsComponent, ProductComponent],
+  exports: [],
 })
 export class ProductModule {}
