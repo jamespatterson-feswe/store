@@ -5,8 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderFooterModule } from './modules/header-footer/header-footer.module';
 import { LoginSignUpModule } from './modules/login-sign-up/login-sign-up.module';
-import { ProductsModule } from './modules/products/products.module';
 import { MainComponent } from './components/main/main.component';
+import { ProductModule } from './modules/product/product.module';
 
 @NgModule({
   declarations: [AppComponent, MainComponent],
@@ -16,7 +16,7 @@ import { MainComponent } from './components/main/main.component';
     HeaderFooterModule,
     HttpClientModule,
     LoginSignUpModule,
-    ProductsModule,
+    ProductModule
   ],
   providers: [],
   bootstrap: [AppComponent],
