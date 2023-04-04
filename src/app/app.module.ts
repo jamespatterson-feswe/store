@@ -4,32 +4,26 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MainComponent } from './components/main/main.component';
-import { HeaderComponent } from './components/header/header.component';
-import { FooterComponent } from './components/footer/footer.component';
-import { LoginComponent } from './components/login/login.component';
-import { SignUpComponent } from './components/sign-up/sign-up.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { ProductsComponent } from './components/products/products.component';
-import { ProductComponent } from './components/product/product.component';
+import { HeaderFooterModule } from './modules/header-footer/header-footer.module';
+import { LoginService } from './services/login/login.service';
+import { HttpService } from './services/http/http.service';
+import { LoginSignUpModule } from './modules/login-sign-up/login-sign-up.module';
+import { ProductsModule } from './modules/products/products.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
-    HeaderComponent,
-    FooterComponent,
-    LoginComponent,
-    SignUpComponent,
-    DashboardComponent,
-    ProductsComponent,
-    ProductComponent
   ],
   imports: [
     AppRoutingModule,
     BrowserModule,
-    HttpClientModule
+    HeaderFooterModule,
+    HttpClientModule,
+    LoginSignUpModule,
+    ProductsModule
   ],
-  providers: [],
+  providers: [HttpService, LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

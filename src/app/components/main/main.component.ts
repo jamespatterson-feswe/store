@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { HttpService } from '../../services/http/http.service';
-import { Products } from '../../models/products.interface';
+import { Product } from '../../models/products.interface';
 import { BehaviorSubject, Subscription } from 'rxjs';
 
 @Component({
@@ -11,16 +11,14 @@ import { BehaviorSubject, Subscription } from 'rxjs';
 export class MainComponent implements OnInit, OnDestroy {
 
   private productsSubscription!: Subscription;
-  protected products$: BehaviorSubject<Products[]>;
+  protected products$: BehaviorSubject<Product[]> = new BehaviorSubject<Product[]>([]);
 
-  constructor(private http: HttpService) {
-    this.products$ = new BehaviorSubject<Products[]>([])
-  }
+  constructor(private http: HttpService) {}
 
   ngOnInit(): void {
     this.productsSubscription =
       this.http.getRequest('https://fakestoreapi.com/products').subscribe({
-        next: (data: Products[]) => {
+        next: (data: Product[]) => {
           console.log(data);
           this.products$.next(data);
         },

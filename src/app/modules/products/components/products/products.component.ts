@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { Products } from '../../models/products.interface';
+import { Product } from '../../../../models/products.interface';
 
 @Component({
   selector: 'app-products',
@@ -8,5 +8,5 @@ import { Products } from '../../models/products.interface';
   styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent {
-  @Input() products!: BehaviorSubject<Products[]>;
+  @Input() products!: BehaviorSubject<Product[]>;
 }
