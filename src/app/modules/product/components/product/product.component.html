@@ -2,11 +2,14 @@
   <div class="header">
     <p>{{ product.title }}</p>
   </div>
+  <div class="header">
+    <p>{{ product.category }}</p>
+  </div>
   <div class="content">
     <img src="{{product.image}}" alt="product for sale" class="img">
   </div>
   <div class="footer">
-    <p>{{ product.category }}</p>
+    <button (click)="productDetails(product)">Details</button>
     <span class="spacer"></span>
     <p>{{ product.price | formatPrice }}</p>
     <img src="../../../assets/cart_add.svg" alt="add to shopping cart icon" class="cart">

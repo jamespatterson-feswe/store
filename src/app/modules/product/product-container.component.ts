@@ -17,7 +17,7 @@ export class ProductContainerComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.productsSubscription = this.http
-      .getRequest('https://fakestoreapi.com/products')
+      .getProducts('https://fakestoreapi.com/products')
       .subscribe({
         next: (data: Product[]) => {
           console.log(data);

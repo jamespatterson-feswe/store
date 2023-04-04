@@ -1,0 +1,10 @@
+<div *ngIf="(product$ | async) as product">
+  <p>ID: {{ product.id }}</p>
+  <p>TITLE: {{ product.title }}</p>
+  <p>CATEGORY: {{ product.category }}</p>
+  <p>DESCRIPTION: {{ product.description }}</p>
+  <p>IMAGE URL: {{ product.image }}</p>
+  <p>PRICE: {{ product.price | formatPrice }}</p>
+  <p>RATE: {{ product.rating.rate }}</p>
+  <p>COUNT: {{ product.rating.count }}</p>
+</div>
