@@ -17,8 +17,8 @@
 
   .details {
     gap: 20px;
-    width: 60%;
-    
+    width: 50%;
+
     @media (min-width:320px)  { width: 85%; }
     @media (min-width:481px)  { width: 80%; }
     @media (min-width:641px)  { width: 70%; }
@@ -31,12 +31,7 @@
 
   .footer {
     display: flex;
-    p {
-      margin: 0 40px;
-    }
-  }
-
-  .add-to-cart-btn {
-    width: 40%;
+    width: 100%;
+    justify-content: space-between;
   }
 }
