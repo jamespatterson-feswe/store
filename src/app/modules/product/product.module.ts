@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { StarRatingModule } from 'angular-star-rating';
 import { ProductRoutingModule } from './product-routing.module';
 import { ProductContainerComponent } from './product-container.component';
 import { ProductsComponent } from './components/products/products.component';
@@ -14,9 +15,9 @@ import { ProductDetailsComponent } from './components/details/product-details.co
     ProductsComponent,
     ProductComponent,
     FormatPricePipe,
-    ProductDetailsComponent
+    ProductDetailsComponent,
   ],
-  imports: [CommonModule, ProductRoutingModule],
+  imports: [CommonModule, ProductRoutingModule, StarRatingModule.forRoot()],
   exports: [],
 })
 export class ProductModule {}

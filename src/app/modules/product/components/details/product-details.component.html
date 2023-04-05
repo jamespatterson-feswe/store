@@ -5,7 +5,7 @@
     <img src="{{product.image}}" alt="product for sale" class="img">
     <p>{{ product.description }}</p>
     <div class="row footer">
-      <p>Rating: {{ product.rating.rate }}</p>
+      <star-rating [starType]="'svg'" [rating]="product.rating.rate"></star-rating>
       <p>1</p>
     </div>
     <div class="row footer">
