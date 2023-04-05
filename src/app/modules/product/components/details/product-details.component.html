@@ -7,9 +7,9 @@
     <div class="row align footer">
       <star-rating [starType]="'svg'" [rating]="product.rating.rate"></star-rating>
       <p>
-        <button class="plus-minus btn">-</button>
-        1
-        <button class="plus-minus btn">+</button>
+        <button class="plus-minus btn" *ngIf="numberOfItems > 1" (click)="increaseDescreaseProducts()">-</button>
+        {{ numberOfItems }}
+        <button class="plus-minus btn" (click)="increaseDescreaseProducts(true)">+</button>
       </p>
     </div>
     <div class="row align footer">

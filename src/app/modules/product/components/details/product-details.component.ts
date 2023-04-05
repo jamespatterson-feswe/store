@@ -11,6 +11,7 @@ import { HttpService } from '../../../../services/http/http.service';
 })
 export class ProductDetailsComponent implements OnDestroy, OnInit {
   protected id: number = 0;
+  protected numberOfItems: number = 1;
   protected subscription: Subscription = new Subscription();
   protected product$!: BehaviorSubject<Product>;
 
@@ -39,6 +40,10 @@ export class ProductDetailsComponent implements OnDestroy, OnInit {
         })
       );
     }
+  }
+
+  protected increaseDescreaseProducts(trigger?: boolean): void {
+    this.numberOfItems += !trigger ? -1 : 1;
   }
 
   ngOnDestroy(): void {
