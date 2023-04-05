@@ -1,12 +1,13 @@
 <div class="container product" *ngIf="(product$ | async) as product">
-  <div class="container details">
-    <p>ID: {{ product.id }}</p>
-    <p>TITLE: {{ product.title }}</p>
-    <p>CATEGORY: {{ product.category }}</p>
-    <p>DESCRIPTION: {{ product.description }}</p>
-    <p>IMAGE URL: {{ product.image }}</p>
-    <p>PRICE: {{ product.price | formatPrice }}</p>
-    <p>RATE: {{ product.rating.rate }}</p>
-    <p>COUNT: {{ product.rating.count }}</p>
+  <div class="container col details">
+    <p>{{ product.title }}</p>
+    <p>{{ product.category }}</p>
+    <img src="{{product.image}}" alt="product for sale" class="img">
+    <p>{{ product.description }}</p>
+    <div class="row footer">
+      <p>Rating: {{ product.rating.rate }}</p>
+      <p>Price: {{ product.price | formatPrice }}</p>
+    </div>
+    <button class="add-to-cart-btn">Add to Cart</button>
   </div>
 </div>

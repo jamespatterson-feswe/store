@@ -4,12 +4,39 @@
   align-items: center;
 }
 
+.row {
+  flex-direction: row;
+}
+
+.col {
+  flex-direction: column;
+}
+
 .product {
   height: 100%;
 
   .details {
-    flex-direction: column;
     gap: 20px;
     width: 60%;
+    
+    @media (min-width:320px)  { width: 85%; }
+    @media (min-width:481px)  { width: 80%; }
+    @media (min-width:641px)  { width: 70%; }
+  }
+
+  .img {
+    max-height: 200px;
+    max-width: 200px;
+  }
+
+  .footer {
+    display: flex;
+    p {
+      margin: 0 40px;
+    }
+  }
+
+  .add-to-cart-btn {
+    width: 40%;
   }
 }

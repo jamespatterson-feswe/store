@@ -13,9 +13,6 @@ export class ProductComponent {
   constructor(private router: Router) {}
 
   protected productDetails(product: Product) {
-    console.log(product);
-    const queryParams = { data: JSON.stringify(product) };
-    // this.router.navigate([`details/${product.id}`], { queryParams: queryParams });
     this.router.navigate([`details/`, product.id]);
   }
 }
