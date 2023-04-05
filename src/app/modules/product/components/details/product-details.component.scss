@@ -19,9 +19,9 @@
     gap: 20px;
     width: 50%;
 
-    @media (min-width:320px)  { width: 85%; }
-    @media (min-width:481px)  { width: 80%; }
-    @media (min-width:641px)  { width: 70%; }
+    @media (max-width:320px)  { width: 85%; }
+    @media (max-width:481px)  { width: 80%; }
+    @media (max-width:641px)  { width: 70%; }
   }
 
   .img {

@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { pipe, pluck, BehaviorSubject, Subscription } from 'rxjs';
 import { Product } from '../../../../models/products.interface';
 import { HttpService } from '../../../../services/http/http.service';
@@ -16,18 +16,12 @@ export class ProductDetailsComponent implements OnDestroy, OnInit {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private http: HttpService
+    private http: HttpService,
+    private route: Router
   ) {}
 
   ngOnInit() {
-    this.subscriptions.push(this.activatedRoute.params.pipe(pluck('id')).subscribe({
-      next: (id: number) => {
-        this.id = id;
-      },
-      error: (err: unknown) => {
-        console.error(err);
-      },
-    }));
+    this.id = this.activatedRoute.snapshot.params['id'];
     if (this.id) {
       this.subscriptions.push(this.http
         .getProduct(`https://fakestoreapi.com/products/${this.id}`)
@@ -42,7 +36,8 @@ export class ProductDetailsComponent implements OnDestroy, OnInit {
           error: (err: unknown) => {
             console.error(err);
           },
-        }));
+        })
+      );
     }
   }
 
