@@ -4,16 +4,16 @@
     <p class="text">{{ product.category }}</p>
     <img src="{{product.image}}" alt="product for sale" class="img">
     <p class="text">{{ product.description }}</p>
-    <div class="row align footer">
+    <div class="row align footer pad">
       <star-rating [starType]="'svg'" [rating]="product.rating.rate"></star-rating>
-      <p class="text">
-        <button class="plus-minus btn" *ngIf="numberOfItems > 1" (click)="increaseDescreaseProducts()">-</button>
-        {{ numberOfItems }}
-        <button class="plus-minus btn" (click)="increaseDescreaseProducts(true)">+</button>
-      </p>
+      <p class="text">{{ product.price | formatPrice }}</p>
     </div>
     <div class="row align footer">
-      <p class="text">{{ product.price | formatPrice }}</p>
+      <p class="text">
+        <button class="plus-minus decrement btn" [disabled]="numberOfItems <= 1" (click)="increaseDescreaseProducts()">-</button>
+        {{ numberOfItems }}
+        <button class="plus-minus increment btn" (click)="increaseDescreaseProducts(true)">+</button>
+      </p>
       <button class="add-to-cart btn">Add to Cart</button>
     </div>
   </div>

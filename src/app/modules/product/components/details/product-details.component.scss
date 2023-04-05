@@ -54,18 +54,34 @@
     justify-content: space-between;
   }
 
+  .pad {
+    margin: 0 10px;
+  }
+
   .btn {
     border: none;
     background-color: var(--footer);
     color: var(--text);
     text-shadow: .5px .5px 1px black;
-    margin: 0 10px;
     box-shadow:  2px 2px 2px 1px var(--text-shadow);
+
+    &:disabled {
+      background-color: lightgray;
+      color: var(--text);
+    }
   }
 
   .plus-minus {
     padding: 5px 10px;
     border-radius: 5px;
+
+    &.decrement {
+      margin-right: 10px;
+    }
+
+    &.increment {
+      margin-left: 10px;
+    }
   }
 
   .add-to-cart {
