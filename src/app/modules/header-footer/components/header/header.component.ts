@@ -1,18 +1,18 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { LoginService } from '../../../../services/login/login.service';
+import { CartService } from '../../../../services/cart/cart.service';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-
   @Input() title: string = '';
-  protected status: string = '';
   protected isLoggedIn: boolean = false;
+  protected status: string = '';
 
-  constructor(private login: LoginService) {}
+  constructor(private cartService: CartService, private login: LoginService) {}
 
   ngOnInit(): void {
     this.setStatus();
@@ -27,5 +27,4 @@ export class HeaderComponent implements OnInit {
     this.login.setLoggedInStatus();
     this.setStatus();
   }
-
 }
