@@ -10,11 +10,11 @@
     </div>
     <div class="row align footer">
       <p class="text">
-        <button class="plus-minus decrement btn" [disabled]="numberOfItems <= 1" (click)="increaseDescreaseProducts()">-</button>
-        {{ numberOfItems }}
+        <button class="plus-minus decrement btn" [disabled]="quantity <= 1" (click)="increaseDescreaseProducts()">-</button>
+        {{ quantity }}
         <button class="plus-minus increment btn" (click)="increaseDescreaseProducts(true)">+</button>
       </p>
-      <button class="add-to-cart btn">Add to Cart</button>
+      <button class="add-to-cart btn" (click)="addToCart(product)">Add to Cart</button>
     </div>
   </div>
 </div>

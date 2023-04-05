@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { pipe, pluck, BehaviorSubject, Subscription } from 'rxjs';
 import { Product } from '../../../../models/products.interface';
 import { HttpProductService } from '../../../../services/http/http.product.service';
+import { CartService } from '../../../../services/cart/cart.service';
 
 @Component({
   selector: 'app-product-details',
@@ -11,12 +12,13 @@ import { HttpProductService } from '../../../../services/http/http.product.servi
 })
 export class ProductDetailsComponent implements OnDestroy, OnInit {
   protected id: number = 0;
-  protected numberOfItems: number = 1;
+  protected quantity: number = 1;
   protected subscription: Subscription = new Subscription();
   protected product$!: BehaviorSubject<Product>;
 
   constructor(
     private activatedRoute: ActivatedRoute,
+    private cartService: CartService,
     private http: HttpProductService,
     private route: Router
   ) {}
@@ -42,11 +44,16 @@ export class ProductDetailsComponent implements OnDestroy, OnInit {
     }
   }
 
-  protected increaseDescreaseProducts(trigger?: boolean): void {
-    this.numberOfItems += !trigger ? -1 : 1;
-  }
-
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
+  }
+
+  protected addToCart(product: Product): void {
+    this.cartService.addItemToCart({ qty: this.quantity, product: product });
+    this.route.navigate(['']);
+  }
+
+  protected increaseDescreaseProducts(trigger?: boolean): void {
+    this.quantity += !trigger ? -1 : 1;
   }
 }
