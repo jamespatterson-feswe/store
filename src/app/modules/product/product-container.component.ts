@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Product } from '../../models/products.interface';
-import { HttpService } from '../../services/http/http.service';
+import { HttpProductService } from '../../services/http/http.product.service';
 import { BehaviorSubject, Subscription } from 'rxjs';
 
 @Component({
@@ -13,7 +13,7 @@ export class ProductContainerComponent implements OnInit, OnDestroy {
     Product[]
   >([]);
 
-  constructor(private http: HttpService) {}
+  constructor(private http: HttpProductService) {}
 
   ngOnInit(): void {
     this.productsSubscription = this.http

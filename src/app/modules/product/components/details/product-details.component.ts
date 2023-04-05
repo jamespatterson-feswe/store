@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { pipe, pluck, BehaviorSubject, Subscription } from 'rxjs';
 import { Product } from '../../../../models/products.interface';
-import { HttpService } from '../../../../services/http/http.service';
+import { HttpProductService } from '../../../../services/http/http.product.service';
 
 @Component({
   selector: 'app-product-details',
@@ -17,7 +17,7 @@ export class ProductDetailsComponent implements OnDestroy, OnInit {
 
   constructor(
     private activatedRoute: ActivatedRoute,
-    private http: HttpService,
+    private http: HttpProductService,
     private route: Router
   ) {}
 
