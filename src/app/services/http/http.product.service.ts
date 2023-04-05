@@ -11,10 +11,10 @@ export class HttpProductService {
   constructor(private http: HttpClient) { }
 
   public getProduct(url: string, options?: any): Observable<Product> {
-    return this.http.get<any>(url);
+    return this.http.get<Product>(url);
   }
 
   public getProducts(url: string, options?: any): Observable<Product[]> {
-    return this.http.get<any>(url);
+    return this.http.get<Product[]>(url);
   }
 }

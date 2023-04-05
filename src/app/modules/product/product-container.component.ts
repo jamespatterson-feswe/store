@@ -8,28 +8,29 @@ import { BehaviorSubject, Subscription } from 'rxjs';
   template: ` <app-products [products]="products$"></app-products> `,
 })
 export class ProductContainerComponent implements OnInit, OnDestroy {
-  private productsSubscription!: Subscription;
+  private subscription: Subscription = new Subscription();
   protected products$: BehaviorSubject<Product[]> = new BehaviorSubject<
     Product[]
   >([]);
 
-  constructor(private http: HttpProductService) {}
+  constructor(private httpProductService: HttpProductService) {}
 
   ngOnInit(): void {
-    this.productsSubscription = this.http
-      .getProducts('https://fakestoreapi.com/products')
-      .subscribe({
-        next: (data: Product[]) => {
-          console.log(data);
-          this.products$.next(data);
-        },
-        error: (err: unknown) => {
-          console.error(err);
-        },
-      });
+    this.subscription.add(
+      this.httpProductService
+        .getProducts('https://fakestoreapi.com/products')
+        .subscribe({
+          next: (data: Product[]) => {
+            this.products$.next(data);
+          },
+          error: (err: unknown) => {
+            console.error(err);
+          },
+        })
+    );
   }
 
   ngOnDestroy(): void {
-    this.productsSubscription.unsubscribe();
+    this.subscription.unsubscribe();
   }
 }
