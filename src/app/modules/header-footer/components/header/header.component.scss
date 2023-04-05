@@ -8,6 +8,10 @@
   height: 10vh;
   padding-left: 20px;
   gap: 20px;
+
+  @media (max-width:641px)  {
+    gap: 10px;
+  }
 }
 
 .login-logout-signup-btn {

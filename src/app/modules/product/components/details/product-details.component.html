@@ -1,17 +1,20 @@
-<div class="container product" *ngIf="(product$ | async) as product">
-  <div class="container col details">
+<div class="container align product" *ngIf="(product$ | async) as product">
+  <div class="container align col details">
     <p>{{ product.title }}</p>
     <p>{{ product.category }}</p>
     <img src="{{product.image}}" alt="product for sale" class="img">
     <p>{{ product.description }}</p>
-    <div class="row footer">
+    <div class="row align footer">
       <star-rating [starType]="'svg'" [rating]="product.rating.rate"></star-rating>
-      <p>1</p>
+      <p>
+        <button class="plus-minus btn">-</button>
+        1
+        <button class="plus-minus btn">+</button>
+      </p>
     </div>
-    <div class="row footer">
+    <div class="row align footer">
       <p>Price: {{ product.price | formatPrice }}</p>
-      <button class="add-to-cart-btn">Add to Cart</button>
+      <button class="add-to-cart btn">Add to Cart</button>
     </div>
-
   </div>
 </div>
