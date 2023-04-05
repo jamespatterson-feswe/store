@@ -11,7 +11,7 @@ import { HttpService } from '../../../../services/http/http.service';
 })
 export class ProductDetailsComponent implements OnDestroy, OnInit {
   protected id: number = 0;
-  protected subscriptions: Subscription[] = [];
+  protected subscription: Subscription = new Subscription();
   protected product$!: BehaviorSubject<Product>;
 
   constructor(
@@ -23,7 +23,7 @@ export class ProductDetailsComponent implements OnDestroy, OnInit {
   ngOnInit() {
     this.id = this.activatedRoute.snapshot.params['id'];
     if (this.id) {
-      this.subscriptions.push(this.http
+      this.subscription.add(this.http
         .getProduct(`https://fakestoreapi.com/products/${this.id}`)
         .subscribe({
           next: (data: Product) => {
@@ -42,8 +42,6 @@ export class ProductDetailsComponent implements OnDestroy, OnInit {
   }
 
   ngOnDestroy(): void {
-    for (let i = 0; i < this.subscriptions.length; i++) {
-      this.subscriptions[i].unsubscribe();
-    }
+    this.subscription.unsubscribe();
   }
 }
