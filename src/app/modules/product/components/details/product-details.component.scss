@@ -63,12 +63,21 @@
     background-color: var(--footer);
     color: var(--text);
     text-shadow: .5px .5px 1px black;
-    box-shadow:  2px 2px 2px 1px var(--text-shadow);
+    box-shadow:  1px 1px 1px 1px var(--text-shadow);
 
     &:disabled {
       background-color: lightgray;
       color: var(--text);
     }
+
+    &:hover {
+      box-shadow:  2px 2px 2px 1px var(--text-shadow);
+    }
+
+    &:active {
+      box-shadow: none;
+    }
+
   }
 
   .plus-minus {
