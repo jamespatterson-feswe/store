@@ -15,6 +15,11 @@
   flex-direction: column;
 }
 
+.text {
+  color: var(--footer);
+  text-shadow: .5px .5px 1px darkgray;
+}
+
 .product {
   height: 100%;
 
@@ -31,7 +36,7 @@
     @media (max-width:481px)  {
       width: 80%;
     }
-    
+
     @media (max-width:641px)  {
       gap: 10px;
       width: 70%;
@@ -53,12 +58,13 @@
     border: none;
     background-color: var(--footer);
     color: var(--text);
+    text-shadow: .5px .5px 1px black;
     margin: 0 10px;
     box-shadow:  2px 2px 2px 1px var(--text-shadow);
   }
 
   .plus-minus {
-    padding: 0 10px;
+    padding: 5px 10px;
     border-radius: 5px;
   }
 

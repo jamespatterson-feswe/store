@@ -31,6 +31,11 @@
     justify-content: center;
   }
 
+  .text {
+    color: var(--footer);
+    text-shadow: .5px .5px 1px darkgray;
+  }
+
   .content {
     flex: 1 1 auto;
     height: 80%;
@@ -48,10 +53,14 @@
     display: flex;
     flex-direction: row;
 
-    .cart {
-      height: 2.5vh;
-      margin-left: 20px;
-      filter: invert(0%) sepia(79%) saturate(0%) hue-rotate(105deg) brightness(98%) contrast(104%);
+    .details-btn {
+      border: none;
+      background-color: var(--footer);
+      color: var(--text);
+      text-shadow: .5px .5px 1px black;
+      padding: 5px 10px;
+      border-radius: 5px;
+      box-shadow:  2px 2px 2px 1px var(--text-shadow);
     }
   }
 }

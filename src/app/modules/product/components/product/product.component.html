@@ -1,17 +1,16 @@
 <div class="card">
   <div class="header">
-    <p>{{ product.title }}</p>
+    <p class="text">{{ product.title }}</p>
   </div>
   <div class="header">
-    <p>{{ product.category }}</p>
+    <p class="text">{{ product.category }}</p>
   </div>
   <div class="content">
     <img src="{{product.image}}" alt="product for sale" class="img">
   </div>
   <div class="footer">
-    <button (click)="productDetails(product)">Details</button>
+    <p class="text">{{ product.price | formatPrice }}</p>
     <span class="spacer"></span>
-    <p>{{ product.price | formatPrice }}</p>
-    <img src="../../../assets/cart_add.svg" alt="add to shopping cart icon" class="cart">
+    <button (click)="productDetails(product)" class="details-btn">Details</button>
   </div>
 </div>
