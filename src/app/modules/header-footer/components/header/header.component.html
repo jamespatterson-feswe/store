@@ -11,5 +11,8 @@
     (click)="userLoginLogout()">
     {{ status }}
   </button>
-  <img src="../../../assets/cart.svg" alt="shopping cart icon" class="cart">
+  <div>
+    <img src="../../../assets/cart.svg" alt="shopping cart icon" class="cart">
+    <sup class="cart-items">{{ totalNumberOfItems }}</sup>
+  </div>
 </div>

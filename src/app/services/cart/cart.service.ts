@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Product } from '../../models/products.interface';
 import { CartItem } from '../../models/cart.interface';
+import { Observable, BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,42 +12,43 @@ export class CartService {
   protected tax: number = 0.07;
   protected total: number;
 
-  public cart: CartItem[];
-  public totalNumberOfItems: number;
+  public cart: BehaviorSubject<CartItem[]>;
+  public numberOfItems: BehaviorSubject<number>;
 
   constructor() {
-    this.cart = [];
+    this.cart = new BehaviorSubject<CartItem[]>([]);
+    this.numberOfItems = new BehaviorSubject<number>(0);
     this.subTotal = 0;
     this.total = 0;
-    this.totalNumberOfItems = 0;
   }
 
   private setup(): void {
     this.calculateTotalNumberOfItems();
     this.calculateTotal();
-    this.calculateSubTotal();
   }
 
   private calculateTotalNumberOfItems(): void {
-    for (let i = 0; i < this.cart.length; i++) {
-      this.totalNumberOfItems += this.cart[i]?.qty ?? 0;
+    let totalNumberOfItems = 0;
+    const _cart = this.cart.getValue();
+    for (let i = 0; i < _cart.length; i++) {
+      totalNumberOfItems += _cart[i]?.qty ?? 0;
     }
-  }
-
-  private calculateSubTotal(): void {
-    for (let i = 0; i < this.cart.length; i++) {
-      this.subTotal += this.total * this.tax;
-    }
+    this.numberOfItems.next(totalNumberOfItems);
   }
 
   private calculateTotal(): void {
-    for (let i = 0; i < this.cart.length; i++) {
-      this.total += (this.cart[i]?.product?.price ?? 0) * (this.cart[i]?.qty ?? 0);
+    const _cart = this.cart.getValue();
+    for (let i = 0; i < _cart.length; i++) {
+      this.total += (_cart[i]?.product?.price ?? 0) * (_cart[i]?.qty ?? 0);
     }
   }
 
   public addItemToCart(item: CartItem) {
-    this.cart.push(item);
+    this.cart.next([...this.cart.getValue(), item]);
     this.setup();
+  }
+
+  public getTotalCartItems(): Observable<number> {
+    return this.numberOfItems.asObservable();
   }
 }
