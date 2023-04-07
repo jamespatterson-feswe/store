@@ -44,7 +44,7 @@ export class CartService {
     this.total.next(_total);
   }
 
-  private isItemInCartAlready(itemId: number) {
+  private isItemInCartAlready(itemId: number): number {
     const _cart = this.cart.getValue();
     for (let i = 0; i < _cart.length; i++) {
       const product = _cart[i].product;
@@ -55,7 +55,7 @@ export class CartService {
     return -1;
   }
 
-  public addItemToCart(item: CartItem) {
+  public addItemToCart(item: CartItem): void {
     const index = this.isItemInCartAlready(item.product.id);
     if (index < 0) {
       this.cart.next([...this.cart.getValue(), item]);
