@@ -12,7 +12,9 @@
     {{ status }}
   </button>
   <div>
-    <img src="../../../assets/cart.svg" alt="shopping cart icon" class="cart">
+    <button class="cart-btn" (click)="navigateToCart()">
+      <img src="../../../assets/cart.svg" alt="shopping cart icon" class="cart">
+    </button>
     <sup class="cart-items">{{ totalNumberOfItems }}</sup>
   </div>
 </div>

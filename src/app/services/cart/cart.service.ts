@@ -4,10 +4,9 @@ import { CartItem } from '../../models/cart.interface';
 import { Observable, BehaviorSubject } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CartService {
-
   protected subTotal: number;
   protected tax: number = 0.07;
   protected total: number;
