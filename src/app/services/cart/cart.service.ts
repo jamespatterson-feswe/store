@@ -43,8 +43,26 @@ export class CartService {
     }
   }
 
+  private isItemInCartAlready(itemId: number) {
+    const _cart = this.cart.getValue();
+    for (let i = 0; i < _cart.length; i++) {
+      const product = _cart[i].product;
+      if (product.id === itemId) {
+        return i;
+      }
+    }
+    return -1;
+  }
+
   public addItemToCart(item: CartItem) {
-    this.cart.next([...this.cart.getValue(), item]);
+    const index = this.isItemInCartAlready(item.product.id);
+    if (index < 0) {
+      this.cart.next([...this.cart.getValue(), item]);
+    } else {
+      const cart = this.cart.getValue();
+      cart[index].qty += item.qty;
+      this.cart.next(cart);
+    }
     this.setup();
   }
 
