@@ -35,6 +35,11 @@ export class CartService {
     this.numberOfItems.next(totalNumberOfItems);
   }
 
+  /** @todo implement */
+  private calculateSubTotal(): void {
+    
+  }
+
   private calculateTotal(): void {
     const _cart = this.cart.getValue();
     let _total = 0;
