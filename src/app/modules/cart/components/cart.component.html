@@ -1,1 +1,18 @@
-<p>cart works!</p>
+<div class="flex cart-container">
+
+  <div *ngIf="(cart | async)?.length; else noItems">
+    <div class="item-container" *ngFor="let item of (cart | async)">
+      <div class="flex item">
+        <span class="flex item-qty">{{ item.qty }}</span>
+        <img class="flex item-img" src="{{ item.product.image }}" alt="item image">
+        <span class="flex item-title">{{ item.product.title }}</span>
+        <span class="flex item-price">{{ item.product.price }}</span>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #noItems>
+    No Items in the Cart.
+  </ng-template>
+
+</div>

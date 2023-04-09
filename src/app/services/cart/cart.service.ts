@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Product } from '../../models/products.interface';
 import { CartItem } from '../../models/cart.interface';
-import { Observable, BehaviorSubject } from 'rxjs';
+import { of, Observable, BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -37,7 +37,7 @@ export class CartService {
 
   /** @todo implement */
   private calculateSubTotal(): void {
-    
+
   }
 
   private calculateTotal(): void {
@@ -70,6 +70,10 @@ export class CartService {
       this.cart.next(cart);
     }
     this.setup();
+  }
+
+  public getCartItems(): Observable<CartItem[]> {
+    return this.cart.asObservable();
   }
 
   public getTotalCartItems(): Observable<number> {
